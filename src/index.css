@@ -1,0 +1,37 @@
+/* === Tema Değişkenleri === */
+[data-theme="dark"] {
+  --color-bg: #0d0d0f;
+  --color-bg-secondary: #111114;
+  --color-surface: #16161a;
+  --color-border: #1e1e24;
+  --color-text: #e8e4dc;
+  --color-text-muted: #6b6a72;
+  --color-neon: #f5c518;
+  --color-overlay: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="sepia"] {
+  --color-bg: #f5f0e8;
+  --color-bg-secondary: #ede6d6;
+  --color-surface: #e8dfc8;
+  --color-border: #c8b89a;
+  --color-text: #2a1f0e;
+  --color-text-muted: #6b5a3e;
+  --color-neon: #c8853a;
+  --color-overlay: rgba(42, 31, 14, 0.35);
+}
+
+/* === Global Reset === */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  transition: background 0.4s, color 0.4s;
+}
