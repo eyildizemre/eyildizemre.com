@@ -1,6 +1,10 @@
 import { NavLink, Link } from "react-router-dom";
 import { usePreferences } from "../../context/PreferencesContext";
-import { useTranslation } from "react-i18next";
+
+const NAV_LABELS = {
+    tr: { works: "projeler", code: "kod", about: "hakkımda", toSepia: "◐ sepya", toDark: "◑ koyu" },
+    en: { works: "works",    code: "code", about: "about",    toSepia: "◐ sepia", toDark: "◑ dark"   },
+};
 
 function PanelIcon() {
     return (
@@ -13,8 +17,8 @@ function PanelIcon() {
 }
 
 export function Header({ onToggleSidebar, isSidebarOpen }) {
-    const { theme, setTheme } = usePreferences();
-    const { t } = useTranslation();
+    const { theme, setTheme, lang } = usePreferences();
+    const nav = NAV_LABELS[lang] ?? NAV_LABELS.en;
 
     const navLinkClass = ({ isActive }) =>
         `text-[13px] tracking-[0.12em] uppercase transition-colors duration-[220ms] pb-1 border-b ${
@@ -31,9 +35,9 @@ export function Header({ onToggleSidebar, isSidebarOpen }) {
             </Link>
 
             <nav className="hidden md:flex items-center gap-8">
-                <NavLink to="/works" className={navLinkClass}>{t("nav.works")}</NavLink>
-                <NavLink to="/code" className={navLinkClass}>{t("nav.code")}</NavLink>
-                <NavLink to="/about" className={navLinkClass}>{t("nav.about")}</NavLink>
+                <NavLink to="/works" className={navLinkClass}>{nav.works}</NavLink>
+                <NavLink to="/code" className={navLinkClass}>{nav.code}</NavLink>
+                <NavLink to="/about" className={navLinkClass}>{nav.about}</NavLink>
             </nav>
 
             <div className="flex items-center gap-3">
@@ -41,7 +45,7 @@ export function Header({ onToggleSidebar, isSidebarOpen }) {
                     onClick={() => setTheme(theme === "dark" ? "sepia" : "dark")}
                     className="hidden sm:block text-[13px] tracking-[0.08em] text-c-muted border border-c-border rounded px-3 py-1.5 bg-transparent font-serif hover:text-c-neon hover:border-c-neon transition-colors duration-[220ms]"
                 >
-                    {theme === "dark" ? t("header.theme.toSepia") : t("header.theme.toDark")}
+                    {theme === "dark" ? nav.toSepia : nav.toDark}
                 </button>
 
                 <button

@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect} from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
-import i18n from "../i18n";
 
 const PreferencesContext = createContext();
 
@@ -21,7 +20,6 @@ export function PreferencesProvider({ children }) {
 
     useEffect(() => {
         document.documentElement.setAttribute("lang", lang);
-        i18n.changeLanguage(lang);
     }, [lang]);
 
     useEffect(() => {
