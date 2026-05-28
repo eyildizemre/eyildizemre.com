@@ -60,8 +60,9 @@ a {
   .text-c-muted    { color: var(--color-text-muted); }
   .text-c-text     { color: var(--color-text); }
 
-  .bg-c-bg         { background-color: var(--color-bg); }
-  .bg-c-surface    { background-color: var(--color-surface); }
+  .bg-c-bg           { background-color: var(--color-bg); }
+  .bg-c-bg-secondary { background-color: var(--color-bg-secondary); }
+  .bg-c-surface      { background-color: var(--color-surface); }
   .bg-c-neon       { background-color: var(--color-neon); }
   .bg-c-overlay    { background-color: var(--color-overlay); }
 
